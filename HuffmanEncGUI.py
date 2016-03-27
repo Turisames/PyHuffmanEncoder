@@ -12,6 +12,7 @@ class mainWindow:
 
         self.__root = tk.Tk()
         self.__root.title( "Huffman Encoder" )
+        self.__root.iconbitmap("oneup.ico")
 
         self.__button = tk.Button( self.__root, text="Choose a file.", command=self.choose_file )
         self.__button.pack(  )
