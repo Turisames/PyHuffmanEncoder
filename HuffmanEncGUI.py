@@ -24,11 +24,16 @@ class mainWindow:
 
     def choose_file(self):
         myFile = filedialog.askopenfilename( filetypes=[ ("text files", ".txt") ] )
-
+        if myFile == None:
+            self.choose_file()
 
         charDict = program.create_dict( myFile )
         vektor = program.chars_in_order( charDict )
 
+        self.__text.delete( 1.0, tk.END )
+
+        # Start writing information.
+        self.__text.insert( tk.END, myFile + "\n" )
         for rivi in vektor:
             self.__text.insert( tk.END, rivi + "\n" )
 

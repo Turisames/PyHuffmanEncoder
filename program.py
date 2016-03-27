@@ -18,6 +18,7 @@ def create_dict( Name="" ):
     if Name == "":
         Name = take_file_name()
 
+
     filu = open( Name, mode='r', encoding='utf-8' )
 
     chars = {}
