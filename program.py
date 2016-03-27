@@ -18,7 +18,7 @@ def create_dict( Name="" ):
     if Name == "":
         Name = take_file_name()
 
-    filu = open( Name, encoding='utf-8' )
+    filu = open( Name, mode='r', encoding='utf-8' )
 
     chars = {}
 
@@ -61,7 +61,7 @@ def print_vektor( vektor = [] ):
     for line in vektor:
         print( line )
 #
-def main():
+def perform_encoding():
 
     charsDict = create_dict(  )
 
@@ -70,4 +70,4 @@ def main():
     print_vektor( vektor )
 
 #
-main()
+#perform_encoding()
