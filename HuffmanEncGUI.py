@@ -1,6 +1,6 @@
 import tkinter as tk, winsound
 import tkinter.filedialog as filedialog
-import program
+import program, os.path
 '''
 A class for providing a graphical user interface to my
 Huffman Encoder.
@@ -24,13 +24,17 @@ class mainWindow:
 
     def choose_file(self):
         myFile = filedialog.askopenfilename( filetypes=[ ("text files", ".txt") ] )
-        if myFile == None:
-            self.choose_file()
+
+        # In case filedialogue is interrupted.
+        if myFile == None or myFile == "":
+            return
 
         charDict = program.create_dict( myFile )
         vektor = program.chars_in_order( charDict )
 
         self.__text.delete( 1.0, tk.END )
+
+        myFile = os.path.basename( myFile )
 
         # Start writing information.
         self.__text.insert( tk.END, myFile + "\n" )
