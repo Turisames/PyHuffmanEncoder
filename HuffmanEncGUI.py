@@ -1,4 +1,4 @@
-import tkinter as tk, winsound
+import tkinter as tk
 import tkinter.filedialog as filedialog
 import program, os.path
 '''
@@ -15,10 +15,13 @@ class mainWindow:
         self.__root.iconbitmap("oneup.ico")
 
         self.__button = tk.Button( self.__root, text="Choose a file.", command=self.choose_file )
-        self.__button.pack(  )
+        self.__button.pack( pady=5 )
 
-        self.__text = tk.Text( self.__root )
-        self.__text.pack()
+        self.__frame = tk.Frame( self.__root )
+        self.__frame.pack( fill=tk.Y )
+
+        self.__text = tk.Text( self.__frame )
+        self.__text.pack(  )
 
         self.__root.mainloop()
 
